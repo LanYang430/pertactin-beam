@@ -12,11 +12,6 @@ produce the results in the paper. Simulation input files, trained models,
 reduced trajectories, and free energy surfaces are archived separately on
 Zenodo: **[DOI/link to be added]**.
 
-A separate, general-purpose BEAM software repository (ongoing development,
-not tied to this specific study) is available at
-[LanYang430/beam](https://github.com/LanYang430/beam). This repository
-contains the exact scripts, parameters, and analysis used for this paper.
-
 ## Repository structure
 
 ```
@@ -35,6 +30,7 @@ pertactin-beam/
         ├── nonnative_contacts.py
         ├── pmf_convergence.py
         └── gillespie_kinetics.py
+        └── pmf_masking.py
 ```
 
 ## Workflow overview
