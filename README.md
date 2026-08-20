@@ -36,13 +36,12 @@ pertactin-beam/
 ## Workflow overview
 
 1. **Coarse-grained simulation** was run with
-   [Upside](https://github.com/sosnicklab/upside2-md) (external software,
-   not included here). See the manuscript Methods for topology, force
+   [Upside](https://github.com/sosnicklab/upside2-md). See the manuscript Methods for topology, force
    field, and sampling parameters.
 
 2. **CG trajectory alignment and tICA training**
    (`scripts/cg_tica/`): align CG trajectories to a reference structure,
-   scan TICA lag times to justify the final lag time, and train the final
+   scan tICA lag times to justify the final lag time, and train the final
    CG tICA model used to define collective variables for REAP.
 
 3. **REAP adaptive sampling**: after each round of all-atom simulations,
@@ -53,11 +52,8 @@ pertactin-beam/
    top 200 candidate structures, and selected 10 starting structures for
    each new sampling round (`configs/reap_parameters.yaml`).
 
-   Cluster-specific SLURM submission scripts are not included, since they
-   depend on the local HPC environment and directory layout.
-
 4. **All-atom REUS and WHAM**: replica-exchange umbrella sampling was run
-   in NAMD (external software), and the resulting 2D free energy surface
+   in NAMD, and the resulting 2D free energy surface
    (PMF) was computed with the WHAM program
    ([Grossfield lab](http://membrane.urmc.rochester.edu/?page_id=126)).
    `scripts/analysis/pmf_convergence.py` checks PMF convergence as a
@@ -78,14 +74,6 @@ pertactin-beam/
    formula (see manuscript Methods, Eq. 2). Supports comparing a
    trap-involved condition against a trap-blocked condition (a region of
    the PMF masked to simulate geometric exclusion).
-
-## External dependencies (not pip-installable)
-
-- [Upside](https://github.com/sosnicklab/upside2-md) - CG molecular dynamics
-- NAMD - AA molecular dynamics and REUS
-- [WHAM](http://membrane.urmc.rochester.edu/?page_id=126) (`wham-2d`) -
-  free energy analysis; must be available on `PATH` for
-  `pmf_convergence.py`
 
 ## Python dependencies
 
