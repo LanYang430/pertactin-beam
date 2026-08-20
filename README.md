@@ -29,8 +29,9 @@ pertactin-beam/
         ├── anisotropy.py
         ├── nonnative_contacts.py
         ├── pmf_convergence.py
+        ├── pmf_masking.py
         └── gillespie_kinetics.py
-        └── pmf_masking.py
+
 ```
 
 ## Workflow overview
@@ -117,6 +118,11 @@ python scripts/analysis/anisotropy.py --dcd tot.dcd \
 python scripts/analysis/nonnative_contacts.py --dcd tot.dcd \
     --pdb reference_all_atom.pdb --ref reference_all_atom.pdb \
     --npy unfold_shape_analysis_results.npy
+
+# Stage 3: mask a region of the PMF (e.g. State B) to simulate geometric exclusion
+python scripts/analysis/pmf_masking.py PMF_2d.out -o PMF_2d_masked.out \
+    --circular-and-energy 1.2 1.75 0.8 15 \
+    --no-interactive --no-plot
 
 # Stage 3: Gillespie kinetics (trap-involved vs. trap-blocked)
 python scripts/analysis/gillespie_kinetics.py \
