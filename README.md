@@ -7,11 +7,6 @@ replica-exchange umbrella sampling (REUS) with WHAM free energy analysis,
 and Gillespie kinetic Monte Carlo simulation on the resulting free energy
 surface.
 
-This repository contains the analysis and pipeline scripts used to
-produce the results in the paper. Simulation input files, trained models,
-reduced trajectories, and free energy surfaces are archived separately on
-Zenodo: **[DOI/link to be added]**.
-
 ## Repository structure
 
 ```
@@ -135,8 +130,7 @@ python scripts/analysis/gillespie_kinetics.py \
 ## Notes on reproducibility and data limitations
 
 - Filenames used as script defaults (e.g. `reference_all_atom.pdb`,
-  `protein_upside.pdb`) are generic placeholders; the exact input files
-  used in this study are archived on Zenodo (see link above).
+  `protein_upside.pdb`) are generic placeholders.
 - Residue numbering: alignment/feature selections in these scripts use
   local trajectory topology numbering (e.g. residues 68-92), which
   corresponds to residues 445-469 in the native pertactin sequence
