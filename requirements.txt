@@ -1,0 +1,6 @@
+numpy>=1.21
+scipy>=1.7
+matplotlib>=3.4
+mdtraj>=1.9
+pyemma>=2.5.7
+tqdm>=4.60
